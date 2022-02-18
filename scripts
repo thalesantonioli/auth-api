@@ -1,0 +1,6 @@
+// Check messages
+aws --endpoint-url=http://localhost:4576 sqs receive-message --queue-url http://localhost:4576/queue/login-otp-notification
+
+// Purge queue
+aws --endpoint-url=http://localhost:4576 sqs purge-queue --queue-url http://localhost:4576/queue/login-otp-notification
+

@@ -1,0 +1,30 @@
+version: "3"
+services:
+  mongodb-fiap:
+    hostname: database-fiap
+    image: mongo:4.2
+    container_name: database-fiap
+    restart: unless-stopped
+    ports:
+      - 27017:27017
+
+  localstack:
+    image: localstack/localstack:0.10.6
+    ports:
+      - "4567-4584:4567-4584"
+      - "8085:8080"
+    environment:
+      - DEFAULT_REGION=eu-central-1
+      - SERVICES=sqs
+      - DEBUG=1
+      - DATA_DIR=/tmp/localstack/data
+      - DOCKER_HOST=unix:///var/run/docker.sock
+    volumes:
+      - ./init-localstack.sh:/docker-entrypoint-initaws.d/init.sh
+
+  mailhog:
+    container_name: mailhog-fiap
+    image: mailhog/mailhog
+    ports:
+      - 1025:1025 # smtp server
+      - 8025:8025 # web ui
