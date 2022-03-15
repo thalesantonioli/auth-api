@@ -1,3 +1,3 @@
 package com.fiap.hmv.model
 
-data class OTPMessage(val username: String, val otp: String, val email: String)
+data class OTPMessage(val message: String, val subject: String, val toEmails: List<String>)

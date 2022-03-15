@@ -55,7 +55,11 @@ class AuthenticationService(
         val oneTimePassword = generateOTP()
         println(oneTimePassword)
         cacheOTP.put(user.email, oneTimePassword)
-        val message = OTPMessage(username = user.name, email = user.email, otp = oneTimePassword)
+
+        val subject = "HMV Challenge -> Autenticaçaão OTP"
+        val bodyMessage = "Olá, ${user.name}. seu coódigo de autenticação é: $oneTimePassword"
+        val receiver = listOf(user.email)
+        val message = OTPMessage(toEmails = receiver, message = bodyMessage, subject = subject)
         publisher.publish(otpQueue, mapper.writeValueAsString(message))
     }
 
