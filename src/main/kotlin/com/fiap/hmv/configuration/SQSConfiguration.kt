@@ -20,6 +20,7 @@ class SQSConfiguration {
     fun amazonSNSAsync(): AmazonSQSAsync {
         return AmazonSQSAsyncClientBuilder.standard()
             .withCredentials(credentialsProvider())
+            .withRegion(awsRegion)
             .build()
     }
 
