@@ -1,17 +1,14 @@
 package com.fiap.hmv.controller
 
-import com.fiap.hmv.model.AuthToken
-import com.fiap.hmv.model.LoginRequest
-import com.fiap.hmv.model.OTPRequest
 import com.fiap.hmv.model.UserRequest
 import com.fiap.hmv.model.persistence.User
 import com.fiap.hmv.service.UserService
-import kotlinx.coroutines.reactive.awaitFirst
 import org.springframework.web.bind.annotation.*
 import reactor.core.publisher.Mono
 import java.util.*
 
 @RestController
+@CrossOrigin(origins = ["*"], allowedHeaders = ["*"])
 @RequestMapping("/user")
 class UserController(private val userService: UserService) {
 

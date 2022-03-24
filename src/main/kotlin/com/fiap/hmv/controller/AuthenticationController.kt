@@ -6,13 +6,11 @@ import com.fiap.hmv.model.OTPRequest
 import com.fiap.hmv.model.ValidateTokenRequest
 import com.fiap.hmv.service.AuthenticationService
 import kotlinx.coroutines.reactive.awaitFirst
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
-import org.springframework.web.bind.annotation.ResponseBody
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.web.bind.annotation.*
 
 
 @RestController
+@CrossOrigin(origins = ["*"], allowedHeaders = ["*"])
 class AuthenticationController(private val authenticationService: AuthenticationService) {
 
     @PostMapping("/authenticate")
