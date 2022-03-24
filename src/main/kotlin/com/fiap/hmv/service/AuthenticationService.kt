@@ -75,6 +75,7 @@ class AuthenticationService(
             if (result.get().toString() == code) {
                 val authToken = generateToken(user.id)
                 cacheToken.put(user.id, authToken.token)
+                return authToken
             }
         }
         throw InvalidAuthenticationException("Invalid login credentials")
@@ -82,7 +83,6 @@ class AuthenticationService(
 
     private fun generateToken(userId: UUID): AuthToken {
         val signingKey = Keys.secretKeyFor(SignatureAlgorithm.HS512)
-
         val jwt = Jwts.builder().setSubject(userId.toString()).signWith(signingKey).compact()
         println("exampleJwt: $jwt")
         return AuthToken(jwt)
