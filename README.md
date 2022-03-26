@@ -1,5 +1,7 @@
 # Auth server
 
+![](./arch.png)
+
 ### Short Description:
 This application is responsible for registering and authenticate
 the new users from our HVM project.
