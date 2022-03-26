@@ -36,5 +36,9 @@ In case you're executing the application to connect to
 Please, get in contact within the group to get all the secrets utilized in the project.
 (as a matter of security, those values won't be commited)
 
-Notes: The simple email service (SES) does not allow sending email to real receivers without validating the domain, 
+### Notes: 
+
+- The simple email service (SES) does not allow sending email to real receivers without validating the domain, 
 as a security mechanism to avoid spamming
+- The [lambda](https://github.com/simalexan/api-lambda-send-email-ses) configured to send emails were not developed by the team, you can find the code in here, however, locally,
+you can find the OTP code into the application logs to proceed with the login.
