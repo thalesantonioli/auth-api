@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "5526f06b-a19f-465c-a7c5-896fcb6992d2",
+		"name": "AUTH-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:8080/user/register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\": \"yuri lenzi\",\n\"email\": \"usuariohmv99@gmail.com\",\n\"cellphone\": \"11111111111\",\n\"address\": { \n    \"streetNumber\": \"403\",\n    \"street\": \"rua das constelacoes\",\n    \"city\": \"Salto\",\n    \"state\": \"SP\",\n    \"zipcode\": \"13329120\",\n    \"country\": \"brasil\"\n    },\n\"documentIdentification\": \"090.718.210-05\",\n\"birthday\": \"1997-06-17\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/user/register",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"user",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/authenticate",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"usuariohmv99@gmail.com\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/authenticate",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"authenticate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:8080/otp-validation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"usuariohmv99@gmail.com\",\n    \"code\": \"162150\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/otp-validation",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"otp-validation"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

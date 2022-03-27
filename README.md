@@ -44,3 +44,19 @@ Please, get in contact within the group to get all the secrets utilized in the p
 as a security mechanism to avoid spamming
 - The [lambda](https://github.com/simalexan/api-lambda-send-email-ses) configured to send emails were not developed by the team, you can find the code in here, however, locally,
 you can find the OTP code into the application logs to proceed with the login.
+
+
+## Important topic
+The secrets, to run the project connecting to the DEV environment (AWS) are at FIAP Portal
+
+
+### How to debug the API
+Using OTP, you'll need to access a valid email. 
+to help you in the process, please fell free to use:
+
+```
+user: usuariohmv99@gmail.com
+passwrod: 102030abc!
+```
+
+Here you can find the [postman collection](./AUTH-API.postman_collection.json)
