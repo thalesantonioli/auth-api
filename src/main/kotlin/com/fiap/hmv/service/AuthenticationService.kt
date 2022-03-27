@@ -71,14 +71,16 @@ class AuthenticationService(
 
     private fun authenticate(user: User, code: String): AuthToken {
         val result = cacheOTP.get(user.email)
-        result?.let {
+        val token = result?.let {
             if (result.get().toString() == code) {
                 val authToken = generateToken(user.id)
                 cacheToken.put(user.id, authToken.token)
-                return authToken
+                return@let authToken
+            } else {
+                throw InvalidAuthenticationException("Invalid login credentials")
             }
-        }
-        throw InvalidAuthenticationException("Invalid login credentials")
+        } ?: throw InvalidAuthenticationException("Invalid login credentials")
+        return token
     }
 
     private fun generateToken(userId: UUID): AuthToken {
